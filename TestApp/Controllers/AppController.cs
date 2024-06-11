@@ -29,12 +29,12 @@ namespace TestApp.Controllers
             try
             {
                 await _userRepo.AddUser(dto);
-                bool isRemoved = _cache.Remove("users");
+                bool isRemoved = await _cache.Remove("users");
                 return Ok(new JSONResponse { Status = true, Message = "User added successfully." });
             }
             catch (Exception ex)
             {
-                return Ok(new JSONResponse { Status = false, ErrorMessage = ex.Message, ErrorDescription = ex.InnerException.ToString() });
+                return Ok(new JSONResponse { Status = false, ErrorMessage = ex.Message, ErrorDescription = ex.InnerException?.ToString() });
             }
         }
 
@@ -44,12 +44,12 @@ namespace TestApp.Controllers
             try
             {
                 await _userRepo.UpdateUser(dto);
-                bool isRemoved = _cache.Remove("users");
+                bool isRemoved = await _cache.Remove("users");
                 return Ok(new JSONResponse { Status = true, Message = "User updated successfully." });
             }
             catch (Exception ex)
             {
-                return Ok(new JSONResponse { Status = false, ErrorMessage = ex.Message, ErrorDescription = ex.InnerException.ToString() });
+                return Ok(new JSONResponse { Status = false, ErrorMessage = ex.Message, ErrorDescription = ex.InnerException?.ToString() });
             }
         }
 
@@ -59,12 +59,12 @@ namespace TestApp.Controllers
             try
             {
                 await _userRepo.DeleteUser(Id);
-                bool isRemoved = _cache.Remove("users");
+                bool isRemoved = await _cache.Remove("users");
                 return Ok(new JSONResponse { Status = true, Message = "User deleted successfully." });
             }
             catch (Exception ex)
             {
-                return Ok(new JSONResponse { Status = false, ErrorMessage = ex.Message, ErrorDescription = ex.InnerException.ToString() });
+                return Ok(new JSONResponse { Status = false, ErrorMessage = ex.Message, ErrorDescription = ex.InnerException?.ToString() });
             }
         }
 
@@ -78,7 +78,7 @@ namespace TestApp.Controllers
             }
             catch (Exception ex)
             {
-                return Ok(new JSONResponse { Status = false, ErrorMessage = ex.Message, ErrorDescription = ex.InnerException.ToString() });
+                return Ok(new JSONResponse { Status = false, ErrorMessage = ex.Message, ErrorDescription = ex.InnerException?.ToString() });
             }
         }
 
@@ -88,11 +88,11 @@ namespace TestApp.Controllers
             try
             {
                 IEnumerable<GetUserDTO>? users = null;
-                var cachedData = _cache.Get<IEnumerable<GetUserDTO>>("users");
+                var cachedData = await _cache.Get<IEnumerable<GetUserDTO>>("users");
                 if (cachedData == null || cachedData.Count() == 0)
                 {           
                     users = _userRepo.GetUsers();                 
-                    _cache.Set("users", users);
+                    await _cache.Set("users", users);
                 }
                 else
                 {
@@ -102,7 +102,7 @@ namespace TestApp.Controllers
             }
             catch (Exception ex)
             {
-                return Ok(new JSONResponse { Status = false, ErrorMessage = ex.Message, ErrorDescription = ex.InnerException.ToString() });
+                return Ok(new JSONResponse { Status = false, ErrorMessage = ex.Message, ErrorDescription = ex.InnerException?.ToString() });
             }
         }
     }

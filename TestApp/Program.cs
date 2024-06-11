@@ -7,13 +7,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<ApplicationDBContext>(opt => opt.UseNpgsql(builder.Configuration.GetConnectionString("cs")));
+builder.Services.AddDbContext<ApplicationDBContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("cs")));
 builder.Services.AddTransient<IUserRepo, UserRepo>();
 builder.Services.AddTransient<ICacheService, CacheService>();
 builder.Services.AddStackExchangeRedisCache(opt =>
 {
     opt.Configuration = builder.Configuration.GetConnectionString("redis");
-    opt.InstanceName = "Staging-free-db";
+    opt.InstanceName = "stg-app";
 });
 builder.Services.AddWatchDogServices(opt =>
 {

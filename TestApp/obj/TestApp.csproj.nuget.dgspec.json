@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\S.M.'s Pro\\Downloads\\Git-Repo\\TestApp-Redis\\TestApp\\TestApp.csproj": {}
+    "C:\\Users\\nexno\\Documents\\GitHub\\Redis-dotnet\\TestApp\\TestApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\S.M.'s Pro\\Downloads\\Git-Repo\\TestApp-Redis\\TestApp\\TestApp.csproj": {
+    "C:\\Users\\nexno\\Documents\\GitHub\\Redis-dotnet\\TestApp\\TestApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\S.M.'s Pro\\Downloads\\Git-Repo\\TestApp-Redis\\TestApp\\TestApp.csproj",
+        "projectUniqueName": "C:\\Users\\nexno\\Documents\\GitHub\\Redis-dotnet\\TestApp\\TestApp.csproj",
         "projectName": "TestApp",
-        "projectPath": "C:\\Users\\S.M.'s Pro\\Downloads\\Git-Repo\\TestApp-Redis\\TestApp\\TestApp.csproj",
-        "packagesPath": "C:\\Users\\S.M.'s Pro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\S.M.'s Pro\\Downloads\\Git-Repo\\TestApp-Redis\\TestApp\\obj\\",
+        "projectPath": "C:\\Users\\nexno\\Documents\\GitHub\\Redis-dotnet\\TestApp\\TestApp.csproj",
+        "packagesPath": "C:\\Users\\nexno\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nexno\\Documents\\GitHub\\Redis-dotnet\\TestApp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\S.M.'s Pro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nexno\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -37,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -46,6 +48,10 @@
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
               "version": "[6.0.19, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -60,10 +66,6 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
-            },
-            "Npgsql.EntityFrameworkCore.PostgreSQL": {
-              "target": "Package",
-              "version": "[6.0.8, )"
             },
             "StackExchange.Redis": {
               "target": "Package",
@@ -84,7 +86,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -96,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
